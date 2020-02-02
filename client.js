@@ -6,6 +6,7 @@ let employeeList = [];
 function readyNow(){
     console.log('in readyNow');
     $( '#submitButton').on('click',submit);
+    $( '#deleteButton').on('click', onDeleteButton);
 
 }//end readyNow
 
@@ -24,22 +25,38 @@ function submit() {
     //push newObject into employeeList array
     displayEmployeeList();
     //show the employeeList
-
+    $( '#firstNameIn' ).val('');
+    $( '#lastNameIn' ).val('');
+    $( '#idIn' ).val('');
+    $( '#titleIn' ).val('');
+    $( '#annualSalaryIn' ).val('');
+    //clear the inputs with .val. Use ; to end statement instead of ,
 }//end submit
 
 function displayEmployeeList() {
     console.log('in displayEmployeeList');
-    //select and empty output element
-    let el= $('#employeesOut');
+    //console log to see if this is working
+    let el= $('#employeesTable');
     el.empty();
+    //select and empty output element
     //loop through array
-    for (let i = 0; i < employeeList.length; i++) {
-        //append each employee to the DOM
-        el.append(`<li>${employeeList[i].firstName} ${employeeList[i].lastName} 
-        ${employeeList[i].id} ${employeeList[i].title} ${employeeList[i].annualSalary}
-        </li>`);
+    for (employee of employeeList){
+        el.append(`
+            <tr>
+                <td>${employee.firstName}</td>
+                <td>${employee.lastName}</td>
+                <td class="id-number">${employee.id}</td>
+                <td>${employee.title}</td>
+                <td>$${employee.annualSalary}</td>
+                <td><button class="deleteButton">Delete</button></td>
+            </tr>
+        `)   //append inputs to table, add delete button after every employee row
     }//end for loop
     
     
-    
 }// end displayEmployeeList
+
+function onDeleteButton() {
+    console.log('onDeleteButton');
+    
+}

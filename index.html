@@ -11,17 +11,36 @@
 </head>
 <body>
     <h1>jQuery Salary Calculator</h1>
-    <input type="text" placeholder="First Name" id="firstNameIn">
-    <input type="text" placeholder="Last Name" id="lastNameIn">
-    <input type="number" placeholder="ID" id="idIn">
-    <input type="text" placeholder="Title" id="titleIn">
-    <input type="number" placeholder="Annual Salary" id="annualSalaryIn">
-    <button id="submitButton">Submit</button> 
-    <!-- add inputs and submit button -->
+    <div class="inputSectiondiv">
+      <h2>Add Employee</h2>
+        <input type="text" placeholder="First Name" id="firstNameIn">
+        <input type="text" placeholder="Last Name" id="lastNameIn">
+        <input type="number" placeholder="ID" id="idIn">
+        <input type="text" placeholder="Title" id="titleIn">
+        <input type="number" placeholder="Annual Salary" id="annualSalaryIn">
+        <button id="submitButton">Submit</button> 
+        <!-- add inputs and submit button -->
+</div>
+<div class="employeeTablediv">  
+    <h2>Employees</h2>  
+    <table id="employeesTable">
+      <th>
+        <tr>
+         <td>First Name</td>
+         <td>Last Name</td>
+         <td>ID</td>
+         <td>Title</td>
+         <td>Annual Salary</td>
+         <td></td>
+        </tr>
+      </th>
+    </table>
 
-    <ul id="employeesOut">
-        
-    </ul>
-
+    <tbody>
+        <!-- employee info goes in here -->
+    </tbody>
+    <!-- add empty ul so that info that is pushed into inputs can be displayed on DOM via this list -->
+    <h2 id="totalMonthlyCost">Total Monthly Cost</h2>
+</div>
 </body>
 </html>
