@@ -7,7 +7,7 @@ let monthlyCost= 0;
 function readyNow(){
     console.log('in readyNow');
     $( '#submitButton').on('click',submit);
-    $( '#deleteButton').on('click', onDeleteButton);
+    $( '#employeeInfo').on('click','.deleteButton', onDeleteButton);
 
 }//end readyNow
 
@@ -21,17 +21,16 @@ function submit() {
         title: $( '#titleIn' ).val(),
         annualSalary: $( '#annualSalaryIn' ).val(),
     }// end newObject
-    console.log('adding:', newObject);
-    employeeList.push(newObject);
-    //push newObject into employeeList array
-    displayEmployeeList();
-    //show the employeeList
     $( '#firstNameIn' ).val('');
     $( '#lastNameIn' ).val('');
     $( '#idIn' ).val('');
     $( '#titleIn' ).val('');
     $( '#annualSalaryIn' ).val('');
     //clear the inputs with .val. Use ; to end statement instead of , 
+    employeeList.push(newObject);
+    //push newObject into employeeList array
+    displayEmployeeList();
+    //show the employeeList
     monthlyCostCalculator();
     //create variables to add up total monthly cost
     let el= $('#monthlyCost');
@@ -52,9 +51,9 @@ function displayEmployeeList() {
             <tr>
                 <td>${employeeList[i].firstName}</td>
                 <td>${employeeList[i].lastName}</td>
-                <td class="id-number">${employeeList[i].id}</td>
+                <td>${employeeList[i].id}</td>
                 <td>${employeeList[i].title}</td>
-                <td>$${employeeList[i].annualSalary}</td>
+                <td>${employeeList[i].annualSalary}</td>
                 <td><button class="deleteButton">Delete</button></td>
             </tr>
         `)   //append inputs to table, add delete button after every employee row
@@ -69,12 +68,18 @@ function monthlyCostCalculator() {
     //have monthlyCost add up annualSalary, then have annualSalary divide 12 for months in year
     }//end for loop
     if (monthlyCost > 20000) {
-        //document.getElementById("totalMonthlyCost").style.backgroundColor = "red";
-        $('#totalMonthlyCost').css({"color":"red"});
+        //if monthly cost>20,000 change background color to red
+        $('#totalMonthlyCost').css({"background-color":"red"});
     }
 }//end monthlyCostCalculator
 
 function onDeleteButton() {
     console.log('onDeleteButton');
-    
-}
+    let el= $(this).parent().parent();
+    //set el to the above so that the entire row gets deleted, not just the
+    // button (took FOREVER to figure out)
+    console.log(el);
+    el.remove('');
+
+}//end onDeleteButton
+

@@ -1,0 +1,47 @@
+table {
+    border: 1px solid black;
+    width: 600px;
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+
+  tr:nth-child(odd) {background-color: #c3e3ff; }
+  tr:nth-child(even) {background-color: lightcyan; }
+  
+  #totalMonthlyCost{
+      width: 800px;
+      margin-left: 20px;
+      margin-right: 20px;
+      text-align: center;
+      
+  }
+  
+  .inputSectiondiv{
+     width: 700px;
+     text-align: left;
+     color: black;
+     margin: 25px;
+     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+      
+  }
+
+h1{
+    color: darkblue;
+font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+h2{
+    color: black;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+  
+h3{
+    color: darkblue;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+  .deleteButton{
+      text-align: center;
+  }
+
+
+
